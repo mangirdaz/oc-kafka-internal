@@ -10,5 +10,3 @@ Dockerfile is the container description for building the Kafka Docker container.
 kafka-docker.sh is the launch script (disabled in Dockerfile but may be used in the future).
 
 server.properties contains the kafka broker configuration and various default values (e.g. topic replication).
-
-log4j.properties was created from scratch and contains the logging configuration.
