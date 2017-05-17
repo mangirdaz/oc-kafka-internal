@@ -16,3 +16,6 @@ zk-docker.sh is the launch script launched in the Docker container.
 log4j.properties contains the logging configuration.
 
 zookeeper.properties is a configuration file for Zookeeper adapted to the 3-node Zookeeper cluster as an INT and PROD stages.
+
+zookeeper-deployment.yaml was created from scratch and contains the OpenShift TEMPLATE for deploying Zookeeper instances.
+The template asks for several parameters and ultimately creates a single Zookeeper instance. - For a full-blown Zookeeper cluster, the template needs to be invoked multiple times (3 times for INT).
