@@ -1,9 +1,13 @@
 # OpenShift Setup for Kafka
 
 Original sources were used and modified:
+
   Dockerfile         (changed)    -> https://github.com/confluentinc/docker-images/blob/master/kafka/Dockerfile
-  kafka-docker.sh    (unchanged)  -> https://github.com/confluentinc/docker-images/blob/master/kafka/kafka-docker.sh 
+  
+  kafka-docker.sh    (unchanged)  -> https://github.com/confluentinc/docker-images/blob/master/kafka/kafka-docker.sh
+  
   server.properties  (unchanged)  -> https://github.com/confluentinc/docker-images/blob/master/kafka/server.properties
+  
 
 Dockerfile is the container description for building the Kafka Docker container.
 
