@@ -90,6 +90,9 @@ objects:
         - name: server-keystore
           secret:
             secretName: kafka-broker-${KAFKA_ID}-tls
+        - name: hawkular-openshift-agent
+          configMap:
+            name: hawkular-openshift-agent-kafka
         nodeSelector:
           broker: app-cikafka-v${KAFKA_ID}
       securityContext:
