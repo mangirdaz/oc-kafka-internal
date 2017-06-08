@@ -23,13 +23,15 @@ RUN ["chmod", "+x", "/usr/local/bin/zk-docker.sh"]
 RUN ["chmod", "-R", "a=u", "/var/log/zookeeper", "/var/lib/zookeeper", "/etc/kafka/zookeeper.properties"]
 
 RUN curl -Lo /usr/share/java/kafka/jolokia.jar http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.3.6/jolokia-jvm-1.3.6-agent.jar
+### ADDED: to expose port 8778 for Jolokia
+ENV KAFKA_OPTS -javaagent:/usr/share/java/kafka/jolokia.jar=port=8778,protocol=http,extraClientCheck=true,host=0.0.0.0,discoveryEnabled=false
 
 VOLUME ["/var/log/zookeeper", "/var/lib/zookeeper"]
 
 #TODO Expose JMX
-# Expose client port (2188/tcp), peer connection port (2888/tcp), leader election port (3888/tcp)
-EXPOSE 2181 2888 3888
+### CHANGED: additionally expose port 8778
+# Expose client port (2188/tcp), peer connection port (2888/tcp), leader election port (3888/tcp), jolokia port (8778/tcp)
+EXPOSE 2181 2888 3888 8778
 
 USER confluent
 ENTRYPOINT ["/usr/local/bin/zk-docker.sh"]
-
