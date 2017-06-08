@@ -28,10 +28,10 @@ RUN curl -Lo /usr/share/java/kafka/jolokia.jar http://search.maven.org/remotecon
 
 
 #TODO Update the ports that are exposed.
-#TODO Add support to expose JMX
-EXPOSE 9092 9093
+### CHANGED: additionally expose port 8778 for Jolokia
+EXPOSE 9092 9093 8778
 
 USER confluent
 
 ### CHANGED: Disabled automated launch of Kafka in container. Instead Kafka is launched by passing additional params to Docker.
-#ENTRYPOINT ["/usr/local/bin/kafka-docker.sh"] 
+#ENTRYPOINT ["/usr/local/bin/kafka-docker.sh"]
