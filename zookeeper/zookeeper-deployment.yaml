@@ -58,6 +58,7 @@ objects:
             hostPort: 2181
           - containerPort: 2888
           - containerPort: 3888
+          - containerPort: 8778
         volumes:
         - name: zookeeper
           persistentVolumeClaim:
@@ -65,6 +66,9 @@ objects:
         - name: config-volume
           configMap:
             name: zk-config
+        - name: hawkular-openshift-agent
+          configMap:
+            name: hawkular-openshift-agent-zookeeper-${ZOOKEEPER_ID}
         nodeSelector:
           broker: app-cikafka-v${ZOOKEEPER_ID}
       securityContext:
