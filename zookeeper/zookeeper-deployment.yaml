@@ -98,5 +98,7 @@ objects:
       port: 2888
     - name: 3888-tcp
       port: 3888
+    - name: 8778-tcp
+      port: 8778
     selector:
       deploymentconfig: ${OBJECT_NAME_PREFIX}-${ZOOKEEPER_ID}
