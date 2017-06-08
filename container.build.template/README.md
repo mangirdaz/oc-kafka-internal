@@ -6,3 +6,4 @@ The template asks for 2 parameters:
   
   OBJECT_NAME_PREFIX - the container to be built; available options are "kafka" and "zookeeper"
   
+  (08.06.17 HR Change path to new user commoninfrastructure)
