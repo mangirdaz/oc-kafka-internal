@@ -57,19 +57,19 @@ data:
         tags:
           descriptor_name: RequestsPerSec/FetchFollower
           container_name: ${POD:label[deploymentconfig]}
-      - name: afka.network:type=RequestMetrics,name=TotalTimeMs,request=Produce#MeanRate
+      - name: kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Produce#MeanRate
         type: gauge
         description: "Total time it takes to process a request. You can also monitor split times for QueueTimeMs, LocalTimeMs, RemoteTimeMs and RemoteTimeMs"
         tags:
           descriptor_name: TotalTimeMs/Produce
           container_name: ${POD:label[deploymentconfig]}
-      - name: afka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchConsumer#MeanRate
+      - name: kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchConsumer#MeanRate
         type: gauge
         description: "Total time it takes to process a request. You can also monitor split times for QueueTimeMs, LocalTimeMs, RemoteTimeMs and RemoteTimeMs"
         tags:
           descriptor_name: TotalTimeMs/FetchConsumer
           container_name: ${POD:label[deploymentconfig]}
-      - name: afka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchFollower#MeanRate
+      - name: kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchFollower#MeanRate
         type: gauge
         description: "Total time it takes to process a request. You can also monitor split times for QueueTimeMs, LocalTimeMs, RemoteTimeMs and RemoteTimeMs"
         tags:
