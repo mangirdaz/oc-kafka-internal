@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: SecurityContextConstraints
+metadata:
+  name: scc-kafka
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: true
+allowPrivilegedContainer: false
+allowedCapabilities: null
+defaultAddCapabilities: null
+priority: null
+readOnlyRootFilesystem: false
+runAsUser:
+  type: MustRunAsRange
+seLinuxContext:
+  type: MustRunAs
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+requiredDropCapabilities:
+- KILL
+- MKNOD
+- SYS_CHROOT
+- SETUID
+- SETGID
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- secret
+users:
+- system:serviceaccount:common-infrastructure:kafkabroker
+groups:
+- system:authenticated
