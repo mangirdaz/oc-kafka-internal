@@ -9,171 +9,172 @@ data:
       collection_interval: 15s
       metrics:
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=InMemoryDataTree#WatchCount
-            type: gauge
-            description: "WatchCount"
-            tags:
-              descriptor_name: WatchCount
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "WatchCount"
+        tags:
+          descriptor_name: WatchCount
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=InMemoryDataTree#NodeCount
-            type: gauge
-            description: "NodeCount"
-            tags:
-              descriptor_name: NodeCount
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "NodeCount"
+        tags:
+          descriptor_name: NodeCount
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3#QuorumSize
-            type: gauge
-            description: "QuorumSize"
-            tags:
-              descriptor_name: QuorumSize
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "QuorumSize"
+        tags:
+          descriptor_name: QuorumSize
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#MaxSessionTimeout
-            type: gauge
-            description: "MaxSessionTimeout"
-            tags:
-              descriptor_name: MaxSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxSessionTimeout"
+        tags:
+          descriptor_name: MaxSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#MinSessionTimeout
-            type: gauge
-            description: "MinSessionTimeout"
-            tags:
-              descriptor_name: MinSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MinSessionTimeout"
+        tags:
+          descriptor_name: MinSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#TickTime
-            type: gauge
-            description: "TickTime"
-            tags:
-              descriptor_name: TickTime
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "TickTime"
+        tags:
+          descriptor_name: TickTime
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#Tick
-            type: gauge
-            description: "Tick"
-            tags:
-              descriptor_name: Tick
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "Tick"
+        tags:
+          descriptor_name: Tick
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#ElectionType
-            type: gauge
-            description: "ElectionType"
-            tags:
-              descriptor_name: ElectionType
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "ElectionType"
+        tags:
+          descriptor_name: ElectionType
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#SyncLimit
-            type: gauge
-            description: "SyncLimit"
-            tags:
-              descriptor_name: SyncLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "SyncLimit"
+        tags:
+          descriptor_name: SyncLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#InitLimit
-            type: gauge
-            description: "InitLimit"
-            tags:
-              descriptor_name: InitLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "InitLimit"
+        tags:
+          descriptor_name: InitLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.1#MaxClientCnxnsPerHost
-            type: gauge
-            description: "MaxClientCnxnsPerHost"
-            tags:
-              descriptor_name: MaxClientCnxnsPerHost
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxClientCnxnsPerHost"
+        tags:
+          descriptor_name: MaxClientCnxnsPerHost
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#MaxSessionTimeout
-            type: gauge
-            description: "MaxSessionTimeout"
-            tags:
-              descriptor_name: MaxSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxSessionTimeout"
+        tags:
+          descriptor_name: MaxSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#MinSessionTimeout
-            type: gauge
-            description: "MinSessionTimeout"
-            tags:
-              descriptor_name: MinSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MinSessionTimeout"
+        tags:
+          descriptor_name: MinSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#TickTime
-            type: gauge
-            description: "TickTime"
-            tags:
-              descriptor_name: TickTime
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "TickTime"
+        tags:
+          descriptor_name: TickTime
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#Tick
-            type: gauge
-            description: "Tick"
-            tags:
-              descriptor_name: Tick
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "Tick"
+        tags:
+          descriptor_name: Tick
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#ElectionType
-            type: gauge
-            description: "ElectionType"
-            tags:
-              descriptor_name: ElectionType
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "ElectionType"
+        tags:
+          descriptor_name: ElectionType
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#SyncLimit
-            type: gauge
-            description: "SyncLimit"
-            tags:
-              descriptor_name: SyncLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "SyncLimit"
+        tags:
+          descriptor_name: SyncLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#InitLimit
-            type: gauge
-            description: "InitLimit"
-            tags:
-              descriptor_name: InitLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "InitLimit"
+        tags:
+          descriptor_name: InitLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.2#MaxClientCnxnsPerHost
-            type: gauge
-            description: "MaxClientCnxnsPerHost"
-            tags:
-              descriptor_name: MaxClientCnxnsPerHost
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxClientCnxnsPerHost"
+        tags:
+          descriptor_name: MaxClientCnxnsPerHost
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#MaxSessionTimeout
-            type: gauge
-            description: "MaxSessionTimeout"
-            tags:
-              descriptor_name: MaxSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxSessionTimeout"
+        tags:
+          descriptor_name: MaxSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#MinSessionTimeout
-            type: gauge
-            description: "MinSessionTimeout"
-            tags:
-              descriptor_name: MinSessionTimeout
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MinSessionTimeout"
+        tags:
+          descriptor_name: MinSessionTimeout
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#TickTime
-            type: gauge
-            description: "TickTime"
-            tags:
-              descriptor_name: TickTime
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "TickTime"
+        tags:
+          descriptor_name: TickTime
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#Tick
-            type: gauge
-            description: "Tick"
-            tags:
-              descriptor_name: Tick
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "Tick"
+        tags:
+          descriptor_name: Tick
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#ElectionType
-            type: gauge
-            description: "ElectionType"
-            tags:
-              descriptor_name: ElectionType
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "ElectionType"
+        tags:
+          descriptor_name: ElectionType
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#SyncLimit
-            type: gauge
-            description: "SyncLimit"
-            tags:
-              descriptor_name: SyncLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "SyncLimit"
+        tags:
+          descriptor_name: SyncLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#InitLimit
-            type: gauge
-            description: "InitLimit"
-            tags:
-              descriptor_name: InitLimit
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "InitLimit"
+        tags:
+          descriptor_name: InitLimit
+          container_name: ${POD:label[deploymentconfig]}
       - name: org.apache.ZooKeeperService:name0=ReplicatedServer_id3,name1=replica.3#MaxClientCnxnsPerHost
-            type: gauge
-            description: "MaxClientCnxnsPerHost"
-            tags:
-              descriptor_name: MaxClientCnxnsPerHost
-              container_name: ${POD:label[deploymentconfig]}
+        type: gauge
+        description: "MaxClientCnxnsPerHost"
+        tags:
+          descriptor_name: MaxClientCnxnsPerHost
+          container_name: ${POD:label[deploymentconfig]}
 kind: ConfigMap
 metadata:
+  name: hawkular-openshift-agent-zookeeper-3
   labels:
-    app: zookeeper-localstore-deploy
+    app: zookeeper-deploy
     hawkular-openshift-agent-example: jolokia-wildfly
     name: hawkular-openshift-agent-zookeeper
-  name: hawkular-openshift-agent-zookeeper-3
+
