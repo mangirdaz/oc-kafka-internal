@@ -26,3 +26,5 @@ zookeeper-deployment.yaml was created from scratch and contains the OpenShift TE
 The template asks for several parameters and ultimately creates a single Zookeeper instance. - For a full-blown Zookeeper cluster, the template needs to be invoked multiple times (3 times for INT).
 
 hawkular-openshift-agent-zookeeper-&lt;Zookeeper-ID&gt;-configmap.yaml contains the configmap for HOSA to collect data provided by Jolokia inside the Zookeeper pod. Each Zookeeper instance/pod needs its own configmap - name is based on the Zookeeper ID (check also: spec.volumes[hawkular-openshift-agent] in zookeeper-deployment.yaml). 
+
+zookeeper_jmx.txt contains infos about available MBeans (JMX/Jolokia syntax) in Zookeeper instances
