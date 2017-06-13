@@ -1,0 +1,699 @@
+#
+# query available MBeans in a Standalone Server
+#
+s229841@MC0W68HC /cygdrive/c/work/02_Projekte/P7S1/git/oc-kafka-internal-master/zookeeper
+$ curl http://192.168.99.100:8778/jolokia/search/org.apache.ZooKeeperService:*
+{
+	"request":{
+		"mbean":"org.apache.ZooKeeperService:*",
+		"type":"search"
+	},
+	"value":[
+		"org.apache.ZooKeeperService:name0=StandaloneServer_port-1",
+		"org.apache.ZooKeeperService:name0=StandaloneServer_port-1,name1=InMemoryDataTree"
+	],
+	"timestamp":1496414709,
+	"status":200
+}
+#
+# MBean InMemoryDataTree
+#
+# should be available on Cluster Server also
+#
+s229841@MC0W68HC /cygdrive/c/work/02_Projekte/P7S1/git/oc-kafka-internal-master/zookeeper
+$ curl http://192.168.99.100:8778/jolokia/list/org.apache.ZooKeeperService/name0=StandaloneServer_port-1,name1=InMemoryDataTree
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=StandaloneServer_port-1,name1=InMemoryDataTree",
+		"type":"list"
+	},"value":{
+		"op":{
+			"approximateDataSize":{
+				"args":[],
+				"ret":"long",
+				"desc":"approximateDataSize"
+			},
+			"countEphemerals":{
+				"args":[],
+				"ret":"int",
+				"desc":"countEphemerals"
+			}
+		},
+		"attr":{
+			"WatchCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"WatchCount"
+			},
+			"NodeCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"NodeCount"
+			},
+			"LastZxid":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"LastZxid"
+			}
+		},
+		"class":"org.apache.zookeeper.server.DataTreeBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1496414979,
+	"status":200
+}
+#
+# Beispiel: http://192.168.99.100:8778/jolokia/read/org.apache.ZooKeeperService:name0=StandaloneServer_port-1,name1=InMemoryDataTree/NodeCount
+#
+
+#
+# MBean ZooKeeperServer
+#
+# (only on Standalone Server)
+#
+s229841@MC0W68HC /cygdrive/c/work/02_Projekte/P7S1/git/oc-kafka-internal-master/zookeeper
+$ curl http://192.168.99.100:8778/jolokia/list/org.apache.ZooKeeperService/name0=StandaloneServer_port-1
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=StandaloneServer_port-1",
+		"type":"list"
+	},
+	"value":{
+		"op":{
+			"resetLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetLatency"
+			},
+			"resetMaxLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetMaxLatency"
+			},
+			"resetStatistics":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetStatistics"
+			}
+		},
+		"attr":{
+			"PacketsReceived":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsReceived"
+			},
+			"PacketsSent":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsSent"
+			},
+			"MaxSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxSessionTimeout"
+			},
+			"AvgRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"AvgRequestLatency"
+			},
+			"NumAliveConnections":{
+				"rw":false,
+				"type":"long",
+				"desc":"NumAliveConnections"
+			},
+			"TickTime":{
+				"rw":true,
+				"type":"int",
+				"desc":"TickTime"
+			},
+			"MaxRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MaxRequestLatency"
+			},
+			"StartTime":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"StartTime"
+			},
+			"ClientPort":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"ClientPort"
+			},
+			"OutstandingRequests":{
+				"rw":false,
+				"type":"long",
+				"desc":"OutstandingRequests"
+			},
+			"MaxClientCnxnsPerHost":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxClientCnxnsPerHost"
+			},
+			"MinRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MinRequestLatency"
+			},
+			"Version":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Version"
+			},
+			"MinSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MinSessionTimeout"
+			}
+		},
+		"class":"org.apache.zookeeper.server.ZooKeeperServerBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1496415333,
+	"status":200
+}
+# --------------------------------------------
+#
+# query available MBeans in a Cluster Server
+#
+$ curl http://192.168.99.100:8778/jolokia/search/org.apache.ZooKeeperService:*
+{
+	"request":{
+		"mbean":"org.apache.ZooKeeperService:*",
+		"type":"search"
+	},
+	"value":[
+		"org.apache.ZooKeeperService:name0=ReplicatedServer_id1,name1=replica.2",
+		"org.apache.ZooKeeperService:name0=ReplicatedServer_id1,name1=replica.1",
+		"org.apache.ZooKeeperService:name0=ReplicatedServer_id1,name1=replica.3",
+		"org.apache.ZooKeeperService:name0=ReplicatedServer_id1,name1=replica.1,name2=LeaderElection",
+		"org.apache.ZooKeeperService:name0=ReplicatedServer_id1"
+	],
+	"timestamp":1496417960,
+	"status":200
+}
+#
+# MBean Quorum
+#
+$ curl http://192.168.99.100:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1",
+		"type":"list"
+	},
+	"value":{
+		"attr":{
+			"QuorumSize":{
+				"rw":false,
+				"type":"int",
+				"desc":"QuorumSize"
+			},
+			"Name":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Name"
+			}
+		},
+		"class":"org.apache.zookeeper.server.quorum.QuorumBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1496418110,
+	"status":200
+}
+#
+# MBean LocalPeer|RemotePeer
+#
+# this is kept for all replicas (1, 2, 3, ...) on every Server
+#
+$ curl http://192.168.99.100:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1,name1=replica.1
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1,name1=replica.1",
+		"type":"list"
+	},
+	"value":{
+		"attr":{
+			"MaxSessionTimeout":{
+				"rw":false,
+				"type":"int",
+				"desc":"MaxSessionTimeout"
+			},
+			"TickTime":{
+				"rw":false,
+				"type":"int",
+				"desc":"TickTime"
+			},
+			"MinSessionTimeout":{
+				"rw":false,
+				"type":"int",
+				"desc":"MinSessionTimeout"
+			},
+			"State":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"State"
+			},
+			"ElectionType":{
+				"rw":false,
+				"type":"int",
+				"desc":"ElectionType"
+			},
+			"StartTime":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"StartTime"
+			},
+			"Tick":{
+				"rw":false,
+				"type":"int",
+				"desc":"Tick"
+			},
+			"SyncLimit":{
+				"rw":false,
+				"type":"int",
+				"desc":"SyncLimit"
+			},
+			"MaxClientCnxnsPerHost":{
+				"rw":false,
+				"type":"int",
+				"desc":"MaxClientCnxnsPerHost"
+			},
+			"InitLimit":{
+				"rw":false,
+				"type":"int",
+				"desc":"InitLimit"
+			},
+			"QuorumAddress":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"QuorumAddress"
+			},
+			"Name":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Name"
+			}
+		},
+		"class":"org.apache.zookeeper.server.quorum.LocalPeerBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1496418938,
+	"status":200
+}
+$ curl http://10.130.0.68:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1,name1=replica.2
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1,name1=replica.2",
+		"type":"list"
+	},
+	"value":{
+		"attr":{
+			"QuorumAddress":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"QuorumAddress"
+			},
+			"Name":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Name"
+			}
+		},
+		"class":"org.apache.zookeeper.server.quorum.RemotePeerBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497292728,
+	"status":200
+}
+$ curl http://10.130.0.68:8778/jolokia/read/org.apache.ZooKeeperService:name0=ReplicatedServecurl http://10.130.0.68:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1,name1=replica.3
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1,name1=replica.3",
+		"type":"list"
+	},
+	"value":{
+		"attr":{
+			"QuorumAddress":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"QuorumAddress"
+			},
+			"Name":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Name"
+			}
+		},
+		"class":"org.apache.zookeeper.server.quorum.RemotePeerBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497292690,
+	"status":200
+}
+#
+# MBean LeaderElection
+#
+$ curl http://192.168.99.100:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1,name1=replica.1,name2=LeaderElection
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1,name1=replica.1,name2=LeaderElection",
+		"type":"list"
+	},
+	"value":{
+		"attr":{
+			"StartTime":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"StartTime"
+			}
+		},
+		"class":"org.apache.zookeeper.server.quorum.LeaderElectionBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1496419191,
+	"status":200
+}
+#
+# MBean Follower
+#
+$ curl http://10.130.0.68:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id1,name1=replica.1,name2=Follower
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id1,name1=replica.1,name2=Follower",
+		"type":"list"
+	},
+	"value":{
+		"op":{
+			"resetLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetLatency"
+			},
+			"resetMaxLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetMaxLatency"
+			},"resetStatistics":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetStatistics"
+			}
+		},
+		"attr":{
+			"PacketsReceived":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsReceived"
+			},
+			"PacketsSent":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsSent"
+			},
+			"MinSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MinSessionTimeout"
+			}
+			"MaxSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxSessionTimeout"
+			},
+			"MinRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MinRequestLatency"
+			},
+			"AvgRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"AvgRequestLatency"
+				},
+			"MaxRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MaxRequestLatency"
+			},
+			"NumAliveConnections":{
+				"rw":false,
+				"type":"long",
+				"desc":"NumAliveConnections"
+			},
+			"LastQueuedZxid":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"LastQueuedZxid"
+			},
+			"TickTime":{
+				"rw":true,"type":
+				"int","desc":"TickTime"
+			},
+			"StartTime":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"StartTime"
+			},
+			"ClientPort":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"ClientPort"
+			},
+			"PendingRevalidationCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"PendingRevalidationCount"
+			},
+			"OutstandingRequests":{
+				"rw":false,
+				"type":"long",
+				"desc":"OutstandingRequests"
+			},
+			"MaxClientCnxnsPerHost":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxClientCnxnsPerHost"
+			},
+			"QuorumAddress":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"QuorumAddress"
+			},
+			"Version":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Version"
+			},
+		},
+		"class":"org.apache.zookeeper.server.quorum.FollowerBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497336792,
+	"status":200
+}
+curl http://10.129.2.27:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id3,name1=replica.3,name2=Follower,name3=InMemoryDataTree
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id3,name1=replica.3,name2=Follower,name3=InMemoryDataTree",
+		"type":"list"
+	},
+	"value":{
+		"op":{
+			"approximateDataSize":{
+				"args":[],
+				"ret":"long",
+				"desc":"approximateDataSize"
+			},
+			"countEphemerals":{
+				"args":[],
+				"ret":"int",
+				"desc":"countEphemerals"
+			}
+		},
+		"attr":{
+			"WatchCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"WatchCount"
+			},
+			"NodeCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"NodeCount"
+			},
+			"LastZxid":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"LastZxid"
+			}
+		},
+		"class":"org.apache.zookeeper.server.DataTreeBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497338964,
+	"status":200
+}
+#
+# MBean Leader
+#
+curl http://10.131.0.20:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id2,name1=replica.2,name2=Leader
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id2,name1=replica.2,name2=Leader",
+		"type":"list"
+	},
+	"value":{
+		"op":{
+			"resetLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetLatency"
+			},
+			"resetMaxLatency":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetMaxLatency"
+			},
+			"resetStatistics":{
+				"args":[],
+				"ret":"void",
+				"desc":"resetStatistics"
+			},
+			"followerInfo":{
+				"args":[],
+				"ret":"java.lang.String",
+				"desc":"followerInfo"
+			}
+		},
+		"attr":{
+			"PacketsReceived":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsReceived"
+			},
+			"PacketsSent":{
+				"rw":false,
+				"type":"long",
+				"desc":"PacketsSent"
+			},
+			"MinSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MinSessionTimeout"
+			}
+			"MaxSessionTimeout":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxSessionTimeout"
+			},
+			"MinRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MinRequestLatency"
+			},
+			"AvgRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"AvgRequestLatency"
+			},
+			"MaxRequestLatency":{
+				"rw":false,
+				"type":"long",
+				"desc":"MaxRequestLatency"
+			},
+			"NumAliveConnections":{
+				"rw":false,
+				"type":"long",
+				"desc":"NumAliveConnections"
+			},
+			"TickTime":{
+				"rw":true,
+				"type":"int",
+				"desc":"TickTime"
+			},
+			"StartTime":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"StartTime"
+			},
+			"ClientPort":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"ClientPort"
+			},
+			"OutstandingRequests":{
+				"rw":false,
+				"type":"long",
+				"desc":"OutstandingRequests"
+			},
+			"MaxClientCnxnsPerHost":{
+				"rw":true,
+				"type":"int",
+				"desc":"MaxClientCnxnsPerHost"
+			},
+			"CurrentZxid":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"CurrentZxid"
+			},
+			"Version":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"Version"
+			},
+		},
+		"class":"org.apache.zookeeper.server.quorum.LeaderBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497337373,
+	"status":200
+}
+curl http://10.131.0.20:8778/jolokia/list/org.apache.ZooKeeperService/name0=ReplicatedServer_id2,name1=replica.2,name2=Leader,name3=InMemoryDataTree
+{
+	"request":{
+		"path":"org.apache.ZooKeeperService\/name0=ReplicatedServer_id2,name1=replica.2,name2=Leader,name3=InMemoryDataTree",
+		"type":"list"
+	},
+	"value":{
+		"op":{
+			"approximateDataSize":{
+				"args":[],
+				"ret":"long",
+				"desc":"approximateDataSize"
+			},
+			"countEphemerals":{
+				"args":[],
+				"ret":"int",
+				"desc":"countEphemerals"
+			}
+		},
+		"attr":{
+			"WatchCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"WatchCount"
+			},
+			"NodeCount":{
+				"rw":false,
+				"type":"int",
+				"desc":"NodeCount"
+			},
+			"LastZxid":{
+				"rw":false,
+				"type":"java.lang.String",
+				"desc":"LastZxid"
+			}
+		},
+		"class":"org.apache.zookeeper.server.DataTreeBean",
+		"desc":"Information on the management interface of the MBean"
+	},
+	"timestamp":1497338608,
+	"status":200
+}
+# 
+# more MBeans available according to http://zookeeper.apache.org/doc/r3.1.2/zookeeperJMX.html
+# todo --> search/list queries on INT with working cluster
+#
+# MBean ServerCnxn (<hex client session id>)
