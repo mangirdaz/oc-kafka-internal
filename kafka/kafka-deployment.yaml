@@ -41,6 +41,8 @@ objects:
     replicas: 1
     selector:
       deploymentconfig: ${OBJECT_NAME_PREFIX}-${KAFKA_ID}
+    strategy:
+      type: Recreate
     template:
       metadata:
         labels:
