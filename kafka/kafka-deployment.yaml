@@ -83,6 +83,7 @@ objects:
           - containerPort: 9092
             hostPort: 9092
           - containerPort: 9093
+          - containerPort: 8778
         volumes:
         - name: kafka-logs
           persistentVolumeClaim:
@@ -119,6 +120,7 @@ objects:
       port: 9092
     - name: 9093-tcp
       port: 9093
+    - name: 8778-tcp
+      port: 8778
     selector:
       deploymentconfig: ${OBJECT_NAME_PREFIX}-${KAFKA_ID}
-      
