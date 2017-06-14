@@ -11,3 +11,4 @@ More infos on how to configure OpenShift routers is available here:
 
 https://docs.openshift.com/container-platform/3.3/install_config/router/customized_haproxy_router.html
 
+<b>Caution: This router configuration can only be applied as soon as the Kafka-Service p7-kafka-1 and Zookeeper Service p7-kafka-zk-3 are deployed, because tthe templates uses named backends based on these services!</b>
